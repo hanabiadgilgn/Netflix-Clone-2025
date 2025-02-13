@@ -31,11 +31,11 @@ function Row({ title, fetchUrl, isLargeRow })  {
     }else {
       movieTrailer(movie?.title || movie?.name || movie?.original_name)
         .then((url) => {
-          console.log(url)
-          const urlParams = new URLSearchParams(new URL(url).search)
-          console.log(urlParams)
-          // get the "v" which is video Id
-          console.log(urlParams.get('v'))
+          console.log(url);
+          const urlParams = new URLSearchParams(new URL(url).search);
+          console.log(urlParams);
+          // get the 'v' parameter, which represents the video ID.
+          console.log(urlParams.get("v"));
           // set the video id in setTrailerUrl state
           setTrailerUrl(urlParams.get("v"));
         })
@@ -55,20 +55,23 @@ function Row({ title, fetchUrl, isLargeRow })  {
     <div className="row">
       <h1>{title}</h1>
       <div className="row__posters">
-        {movies?.map(( movie, index) => (
-          //loading the images and onClick show trailer
+        {movies?.map((movie, index) => (
+          //load the images and display the trailer on click
           <img
-            onClick={() => handleClick(movie)}  
-            key={index} src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-            alt={movie.name} className= {`row__poster $ {isLargeRow && "row__posterLarge"}`}
+            onClick={() => handleClick(movie)}
+            key={index}
+            src={`${base_url}${
+              isLargeRow ? movie.poster_path : movie.backdrop_path
+            }`}
+            alt={movie.name}
+            className={`row__poster $ {isLargeRow && "row__posterLarge"}`}
           />
         ))}
       </div>
 
-      <div style={{ padding: '40px'}}>
-        {trailerUrl && <YouTube videoId={trailerUrl} opts={opts}/>}
+      <div style={{ padding: "40px" }}>
+        {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
       </div>
-
     </div>
   );
 }

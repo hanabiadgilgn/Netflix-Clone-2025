@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// here is the base URL. we use it to fecth  the api's
+// the base URL, which we use to fetch the APIs.
 const instance = axios.create({
     baseURL: "https://api.themoviedb.org/3",
 });

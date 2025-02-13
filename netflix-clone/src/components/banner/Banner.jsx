@@ -9,14 +9,14 @@ function Banner() {
     useEffect(()=>{
         (async () => {
             try {
-                const request = await axios.get(requests.fetchNetflixOriginals);
-                console.log(request);
-                // whene the page is refresh, select a movie randomly, from the data and display it in a banner
-                setMovie(
-                    request.data.results[
-                    Math.floor(Math.random() * request.data.results.length)
-                    ]
-                );
+              const request = await axios.get(requests.fetchNetflixOriginals);
+              console.log(request);
+              //when the page refreshes, randomly select a movie from the data and display it in the banner
+              setMovie(
+                request.data.results[
+                  Math.floor(Math.random() * request.data.results.length)
+                ]
+              );
             } catch (error){
                 console.log("error", error)
             }
