@@ -15,10 +15,10 @@
 .row__posters ::-webkit-scrollbar {
     display: none;
 }
-.row__posters:hover {
+.row__posters :hover {
     transform: scale(1.08);
 }
-.row__posterLarge {
+.row__posterLarge{
     max-height: 250px;
 }
 .row__posterLarge:hover {
